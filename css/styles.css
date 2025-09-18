@@ -25,47 +25,203 @@ h1{font-size:clamp(1.8rem, 2.5vw, 2.4rem)}
 h2{font-size:clamp(1.4rem, 1.8vw, 1.8rem)}
 h3{font-size:clamp(1.05rem, 1.2vw, 1.2rem)}
 
-/* Header: más aire + hamburguesa móvil */
+/* Header: nuevo diseño con menú lateral */
 header{
-  background: linear-gradient(180deg, var(--azul), var(--azul-600));
+  background: linear-gradient(135deg, var(--azul) 0%, #1e3a8a 50%, var(--azul-600) 100%);
   color:#fff;
-  display:flex; align-items:center; justify-content:space-between;
-  gap:1rem;
-  padding: .9rem 1.25rem;   /* más aire */
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  padding: 2rem 1.5rem;
   position:sticky; top:0; z-index:20;
-  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+  box-shadow: 0 12px 32px rgba(11,61,145,.25);
+  min-height: 90px;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
-/* Logo circular */
-header .logo img{
-  height:56px; width:56px; border-radius:50%;
-  object-fit:cover; background:#fff; padding:4px; display:block;
-  box-shadow:0 2px 6px rgba(0,0,0,.15);
+/* Título principal centrado */
+.header-title {
+  text-align: center;
+  flex: 1;
 }
 
-/* --- Nav base (desktop) --- */
-nav ul{
-  list-style:none; display:flex; gap:1.1rem;
-  margin:0; padding:0;
+.header-title h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  text-shadow: 0 4px 8px rgba(0,0,0,.3);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-nav a{
-  color:#fff; text-decoration:none; font-weight:700;
-  padding:.45rem .55rem; border-radius:8px;
-  transition:background .15s ease, transform .12s ease, color .15s ease;
-}
-nav a:hover{background:rgba(255,255,255,.12); transform:translateY(-1px)}
-nav a:focus-visible{outline:2px solid #fff; outline-offset:2px}
 
-/* --- Hamburguesa (móvil) --- */
-.nav-check{display:none}
-.nav-burger{
-  display:none; cursor:pointer; width:44px; height:44px;
-  align-items:center; justify-content:center; border-radius:10px;
-  border:1px solid rgba(255,255,255,.25);
+/* --- Menú lateral hamburguesa --- */
+#site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
-.nav-burger span{
-  display:block; width:22px; height:2px; background:#fff; margin:4px 0; transition:transform .2s ease, opacity .2s ease;
-  border-radius:2px;
+
+.nav-check {
+  display: none;
+}
+
+.nav-burger {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.3);
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.nav-burger:hover {
+  background: rgba(255,255,255,.25);
+  transform: scale(1.05);
+}
+
+.nav-burger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación del botón hamburguesa */
+.nav-check:checked ~ .nav-burger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-check:checked ~ .nav-burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-check:checked ~ .nav-burger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menú lateral desplegable */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: -380px;
+  width: 380px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--azul) 0%, #1e3a8a 50%, var(--azul-600) 100%);
+  box-shadow: 8px 0 32px rgba(0,0,0,.4);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  z-index: 999;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+
+.nav-check:checked ~ .nav-menu {
+  left: 0;
+}
+
+/* Header del menú lateral */
+.nav-header {
+  padding: 2.5rem 2rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,.02) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  padding: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 12px 32px rgba(0,0,0,.4);
+  border: 4px solid rgba(255,255,255,.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+}
+
+.nav-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.4;
+  text-shadow: 0 2px 4px rgba(0,0,0,.3);
+  letter-spacing: -0.01em;
+}
+
+/* Lista de navegación lateral */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  display: block;
+  padding: 1.2rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-left: 4px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  letter-spacing: 0.01em;
+}
+
+.nav-list a:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,.08) 100%);
+  border-left-color: #fff;
+  transform: translateX(8px);
+  box-shadow: inset 0 0 20px rgba(255,255,255,.1);
+}
+
+.nav-list a:active {
+  transform: translateX(4px);
+}
+
+.nav-list a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
+/* Overlay para cerrar menú al hacer click fuera */
+.nav-check:checked ~ .nav-menu::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,.5);
+  z-index: -1;
 }
 
 /* Layout contenedor (más ancho y sombra suave) */
@@ -106,9 +262,9 @@ h3{margin:1rem 0 .6rem}
 .chips li{
   background:#eef4ff; border:1px solid #dce6ff; padding:.35rem .6rem; border-radius:999px;
 }
-.list-check, .list-dash{padding-left:1.25rem; margin:.4rem 0}
-.list-check li{margin:.25rem 0; list-style:"✅ "}
-.list-dash  li{margin:.25rem 0; list-style:"— "}
+.list-check, .list-dash{padding-left:0; margin:.4rem 0}
+.list-check li{margin:.25rem 0; list-style:none}
+.list-dash  li{margin:.25rem 0; list-style:none}
 
 /* Banner más legible + tipografía fluida */
 .banner{
@@ -157,8 +313,29 @@ footer{
 /* Bloque de MARCA (logo grande) */
 .brand{display:flex; align-items:center; gap:2rem; justify-content:center}
 .brand-logo{
-  width:300px; height:auto; object-fit:contain; background:#fff;
-  border:1px solid var(--borde); border-radius:24px; padding:15px; box-shadow: var(--shadow);
+  width:400px; height:auto; object-fit:contain; background:#fff;
+  border:2px solid var(--borde); border-radius:28px; padding:20px; 
+  box-shadow: 0 12px 32px rgba(0,0,0,.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 16px 40px rgba(0,0,0,.2);
+}
+
+/* Logo pequeño para otras páginas */
+.brand-logo.small {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+}
+
+.brand-logo.small:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
 }
 .brand-copy{text-align:left}
 .brand-copy h2{margin:.25rem 0 .5rem; font-size:clamp(1.4rem, 2vw, 2rem)}
@@ -166,7 +343,15 @@ footer{
 @media (max-width:900px){
   .brand{flex-direction:column; text-align:center}
   .brand-copy{text-align:center}
-  .brand-logo{width:220px}
+  .brand-logo{width:100px; height:100px}
+}
+
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 80px;
+    height: 80px;
+    padding: 6px;
+  }
 }
 
 /* Electromovilidad con imagen lateral */
@@ -263,7 +448,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* --- “Más” (dropdown de overflow) --- */
-.nav-list{display:flex; align-items:center; gap:1.1rem; margin:0; padding:0; list-style:none}
+/* Esta regla se eliminó para permitir el diseño vertical del menú lateral */
 .nav-list > li{white-space:nowrap}
 
 .nav-more{position:relative; display:none;}        /* oculto si no hay overflow */
@@ -299,13 +484,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ====== ADD-ON: NAV OVERFLOW “MÁS” (solo añadir, sin reemplazar) ====== */
 
 /* La lista puede scrollear en casos límite de zoom */
-.nav-list{
-  display:flex; align-items:center; gap:1.1rem; margin:0; padding:0; list-style:none;
-  white-space:nowrap; overflow-x:auto; scrollbar-width:thin;
-}
-.nav-list::-webkit-scrollbar{height:8px}
-.nav-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25); border-radius:8px}
-.nav-list > li{white-space:nowrap}
+/* Reglas eliminadas para permitir diseño vertical del menú lateral */
 
 /* Botón Más (se muestra si hay overflow; lo gestiona el JS) */
 .nav-more{position:relative; display:none}
@@ -365,4 +544,120 @@ header{ position:sticky; top:0; z-index:50 }
 @media (min-width:980px) and (max-width:1199.98px){
   .nav-list{ gap:.8rem }
   nav a{ padding:.4rem .5rem }
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+  .nav-burger {
+    width: 45px;
+    height: 45px;
+    top: 0.8rem;
+    left: 0.8rem;
+  }
+  
+  .nav-menu {
+    width: 100vw;
+    left: -100vw;
+  }
+  
+  .header-title h1 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+  
+  header {
+    padding: 1rem 0.8rem;
+    min-height: 70px;
+  }
+  
+  /* Mejorar contenedores en móvil */
+  .container {
+    margin: 1rem 0.5rem;
+    padding: 1rem;
+  }
+  
+  /* Grids responsivos */
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Botones más grandes en móvil */
+  .btn {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-burger {
+    width: 40px;
+    height: 40px;
+    top: 0.6rem;
+    left: 0.6rem;
+  }
+  
+  .nav-header {
+    padding: 1.5rem 1rem 0.8rem;
+  }
+  
+  .nav-logo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .nav-header h3 {
+    font-size: 1rem;
+  }
+  
+  .nav-list a {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Ajustes para pantallas muy pequeñas */
+  .container {
+    margin: 0.5rem 0.25rem;
+    padding: 0.75rem;
+  }
+  
+  .header-title h1 {
+    font-size: 1.2rem;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .card {
+    padding: 0.75rem;
+  }
+}
+
+/* Responsividad para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+    margin: 1.5rem auto;
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsividad para pantallas grandes */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

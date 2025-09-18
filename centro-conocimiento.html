@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centro de Conocimiento - Cámara Peruana de Electromovilidad</title>
+  <meta name="description" content="Centro de conocimiento sobre electromovilidad. Recursos, estudios, investigaciones y documentación técnica." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <header>
+    <nav id="site-nav" aria-label="Navegación principal">
+      <input type="checkbox" id="nav-check" class="nav-check" aria-label="Abrir menú" />
+      <label for="nav-check" class="nav-burger" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="nav-menu">
+        <div class="nav-header">
+          <img src="img/logo.jpg" alt="Logo Cámara Peruana de Electromovilidad" class="nav-logo" />
+          <h3>Cámara Peruana de Electromovilidad</h3>
+        </div>
+        <ul class="nav-list">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="quienes-somos.html">👥 Quiénes Somos</a></li>
+          <li><a href="electromovilidad.html">⚡ Electromovilidad</a></li>
+          <li><a href="metas-2030.html">🎯 Metas 2030</a></li>
+          <li><a href="hoja-ruta.html">🗺️ Hoja de Ruta</a></li>
+          <li><a href="tco.html">💰 Coste Total de Propiedad (TCO)</a></li>
+          <li><a href="infraestructura.html">🏗️ Infraestructura</a></li>
+          <li><a href="hazte-parte.html">🤝 Hazte Parte</a></li>
+          <li><a href="centro-conocimiento.html">📚 Centro de Conocimiento</a></li>
+          <li><a href="proyectos.html">🚀 Proyectos</a></li>
+          <li><a href="faq.html">❓ Preguntas Frecuentes</a></li>
+          <li><a href="noticias.html">📰 Noticias</a></li>
+          <li><a href="contacto.html">📞 Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="header-title">
+      <h1>Cámara Peruana de Electromovilidad</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <h2>Centro de Conocimiento</h2>
+      <p>Recursos y documentación sobre electromovilidad.</p>
+      
+      <div class="cards">
+        <div class="card">
+          <h4>📊 Estudios y Reportes</h4>
+          <p>Investigaciones sobre electromovilidad en el Perú</p>
+        </div>
+        <div class="card">
+          <h4>📚 Guías Técnicas</h4>
+          <p>Documentación técnica y manuales</p>
+        </div>
+        <div class="card">
+          <h4>🎥 Webinars</h4>
+          <p>Sesiones educativas en línea</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Cámara Peruana de Electromovilidad. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    (function(){
+      const navCheck = document.getElementById('nav-check');
+      const navBurger = document.querySelector('.nav-burger');
+      
+      if (navCheck && navBurger) {
+        const navLinks = document.querySelectorAll('.nav-list a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navCheck.checked = false;
+          });
+        });
+        
+        document.addEventListener('click', (e) => {
+          if (!navCheck.contains(e.target) && !navBurger.contains(e.target)) {
+            navCheck.checked = false;
+          }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && navCheck.checked) {
+            navCheck.checked = false;
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

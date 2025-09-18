@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiénes Somos - Cámara Peruana de Electromovilidad</title>
+  <meta name="description" content="Conoce más sobre la Cámara Peruana de Electromovilidad, nuestra misión, visión y objetivos para el futuro sostenible del transporte en Perú." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <!-- Menú hamburguesa lateral -->
+    <nav id="site-nav" aria-label="Navegación principal">
+      <input type="checkbox" id="nav-check" class="nav-check" aria-label="Abrir menú" />
+      <label for="nav-check" class="nav-burger" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </label>
+
+      <!-- Menú desplegable lateral -->
+      <div class="nav-menu">
+        <div class="nav-header">
+          <img src="img/logo.jpg" alt="Logo Cámara Peruana de Electromovilidad" class="nav-logo" />
+          <h3>Cámara Peruana de Electromovilidad</h3>
+        </div>
+        
+        <ul class="nav-list">
+          <li><a href="index.html"><span class="nav-icon">🏠</span> Inicio</a></li>
+          <li><a href="quienes-somos.html"><span class="nav-icon">👥</span> Quiénes Somos</a></li>
+          <li><a href="electromovilidad.html"><span class="nav-icon">⚡</span> Electromovilidad</a></li>
+          <li><a href="metas-2030.html"><span class="nav-icon">🎯</span> Metas 2030</a></li>
+          <li><a href="hoja-ruta.html"><span class="nav-icon">🗺️</span> Hoja de Ruta</a></li>
+          <li><a href="tco.html"><span class="nav-icon">💰</span> Coste Total de Propiedad (TCO)</a></li>
+          <li><a href="infraestructura.html"><span class="nav-icon">🏗️</span> Infraestructura</a></li>
+          <li><a href="hazte-parte.html"><span class="nav-icon">🤝</span> Hazte Parte</a></li>
+          <li><a href="centro-conocimiento.html"><span class="nav-icon">📚</span> Centro de Conocimiento</a></li>
+          <li><a href="proyectos.html"><span class="nav-icon">🚀</span> Proyectos</a></li>
+          <li><a href="faq.html"><span class="nav-icon">❓</span> Preguntas Frecuentes</a></li>
+          <li><a href="noticias.html"><span class="nav-icon">📰</span> Noticias</a></li>
+          <li><a href="contacto.html"><span class="nav-icon">📞</span> Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Título principal centrado -->
+    <div class="header-title">
+      <h1>Cámara Peruana de Electromovilidad</h1>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <section class="container">
+      <div class="brand">
+        <img src="img/logo.jpg" alt="Cámara Peruana de Electromovilidad" class="brand-logo small" />
+        <div class="brand-copy">
+          <h2>Quiénes Somos</h2>
+          <p>Conoce más sobre nuestra organización y misión</p>
+        </div>
+      </div>
+      
+      <div class="grid-2">
+        <div>
+          <h3>Nuestra Misión</h3>
+          <p>Promover y acelerar la transición hacia la electromovilidad en el Perú, facilitando la adopción de vehículos eléctricos y tecnologías limpias que contribuyan al desarrollo sostenible del país.</p>
+          
+          <h3>Nuestra Visión</h3>
+          <p>Ser la institución líder en el Perú que impulse la transformación del sector transporte hacia la electromovilidad, creando un ecosistema sostenible y accesible para todos los peruanos.</p>
+        </div>
+        
+        <div>
+          <h3>Nuestros Valores</h3>
+          <ul class="list-check">
+            <li>Sostenibilidad ambiental</li>
+            <li>Innovación tecnológica</li>
+            <li>Accesibilidad universal</li>
+            <li>Colaboración multisectorial</li>
+            <li>Transparencia y ética</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Nuestra Historia</h3>
+      <p>La Cámara Peruana de Electromovilidad fue fundada en 2024 con el objetivo de unificar esfuerzos del sector privado, público y académico para acelerar la adopción de tecnologías de electromovilidad en el Perú. Nacimos de la necesidad de crear un espacio de diálogo y colaboración que permita superar las barreras técnicas, económicas y regulatorias que enfrenta la transición hacia un transporte más limpio y eficiente.</p>
+
+      <h3>Equipo Directivo</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>Presidente Ejecutivo</h4>
+          <p>Lidera la estrategia general de la organización y las relaciones institucionales.</p>
+        </div>
+        <div class="card">
+          <h4>Director Técnico</h4>
+          <p>Supervisa los aspectos técnicos y de innovación en electromovilidad.</p>
+        </div>
+        <div class="card">
+          <h4>Director de Políticas</h4>
+          <p>Coordina las iniciativas de políticas públicas y regulación.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2024 Cámara Peruana de Electromovilidad. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    (function(){
+      // ---------------- MENÚ LATERAL ---------------- 
+      const navCheck = document.getElementById('nav-check');
+      const navBurger = document.querySelector('.nav-burger');
+      
+      if (navCheck && navBurger) {
+        // Cerrar menú al hacer click en un enlace
+        const navLinks = document.querySelectorAll('.nav-list a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navCheck.checked = false;
+          });
+        });
+        
+        // Cerrar menú al hacer click fuera
+        document.addEventListener('click', (e) => {
+          if (!navCheck.contains(e.target) && !navBurger.contains(e.target)) {
+            navCheck.checked = false;
+          }
+        });
+        
+        // Cerrar con Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && navCheck.checked) {
+            navCheck.checked = false;
+          }
+        });
+      }
+    })();
+  </script>
+  
+</body>
+</html>

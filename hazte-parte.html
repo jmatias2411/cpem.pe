@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hazte Parte - Cámara Peruana de Electromovilidad</title>
+  <meta name="description" content="Únete a la Cámara Peruana de Electromovilidad. Membresías, beneficios y oportunidades para empresas y personas interesadas en electromovilidad." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <header>
+    <nav id="site-nav" aria-label="Navegación principal">
+      <input type="checkbox" id="nav-check" class="nav-check" aria-label="Abrir menú" />
+      <label for="nav-check" class="nav-burger" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="nav-menu">
+        <div class="nav-header">
+          <img src="img/logo.jpg" alt="Logo Cámara Peruana de Electromovilidad" class="nav-logo" />
+          <h3>Cámara Peruana de Electromovilidad</h3>
+        </div>
+        <ul class="nav-list">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="quienes-somos.html">👥 Quiénes Somos</a></li>
+          <li><a href="electromovilidad.html">⚡ Electromovilidad</a></li>
+          <li><a href="metas-2030.html">🎯 Metas 2030</a></li>
+          <li><a href="hoja-ruta.html">🗺️ Hoja de Ruta</a></li>
+          <li><a href="tco.html">💰 Coste Total de Propiedad (TCO)</a></li>
+          <li><a href="infraestructura.html">🏗️ Infraestructura</a></li>
+          <li><a href="hazte-parte.html">🤝 Hazte Parte</a></li>
+          <li><a href="centro-conocimiento.html">📚 Centro de Conocimiento</a></li>
+          <li><a href="proyectos.html">🚀 Proyectos</a></li>
+          <li><a href="faq.html">❓ Preguntas Frecuentes</a></li>
+          <li><a href="noticias.html">📰 Noticias</a></li>
+          <li><a href="contacto.html">📞 Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="header-title">
+      <h1>Cámara Peruana de Electromovilidad</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="container">
+      <div class="brand">
+        <img src="img/logo.jpg" alt="Cámara Peruana de Electromovilidad" class="brand-logo small" />
+        <div class="brand-copy">
+          <h2>Hazte Parte</h2>
+          <p>Únete a la revolución de la electromovilidad en el Perú</p>
+        </div>
+      </div>
+      
+      <div class="cards">
+        <div class="card">
+          <h4>👤 Membresía Individual</h4>
+          <p>Para personas interesadas en electromovilidad</p>
+          <ul class="list-check">
+            <li>Acceso a eventos exclusivos</li>
+            <li>Descuentos en cursos</li>
+            <li>Boletín informativo</li>
+          </ul>
+          <a href="contacto.html" class="btn">Solicitar Membresía</a>
+        </div>
+        <div class="card">
+          <h4>🏢 Membresía Empresarial</h4>
+          <p>Para empresas del sector</p>
+          <ul class="list-check">
+            <li>Participación en comités</li>
+            <li>Networking empresarial</li>
+            <li>Acceso a estudios de mercado</li>
+          </ul>
+          <a href="contacto.html" class="btn">Solicitar Membresía</a>
+        </div>
+        <div class="card">
+          <h4>🎓 Membresía Académica</h4>
+          <p>Para instituciones educativas</p>
+          <ul class="list-check">
+            <li>Recursos educativos</li>
+            <li>Programas de investigación</li>
+            <li>Colaboración académica</li>
+          </ul>
+          <a href="contacto.html" class="btn">Solicitar Membresía</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Cámara Peruana de Electromovilidad. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    (function(){
+      const navCheck = document.getElementById('nav-check');
+      const navBurger = document.querySelector('.nav-burger');
+      
+      if (navCheck && navBurger) {
+        const navLinks = document.querySelectorAll('.nav-list a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navCheck.checked = false;
+          });
+        });
+        
+        document.addEventListener('click', (e) => {
+          if (!navCheck.contains(e.target) && !navBurger.contains(e.target)) {
+            navCheck.checked = false;
+          }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && navCheck.checked) {
+            navCheck.checked = false;
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

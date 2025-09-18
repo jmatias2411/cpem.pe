@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TCO - Coste Total de Propiedad - Cámara Peruana de Electromovilidad</title>
+  <meta name="description" content="Calcula el Coste Total de Propiedad (TCO) de vehículos eléctricos vs convencionales. Herramientas y análisis para tomar decisiones informadas." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <!-- Menú hamburguesa lateral -->
+    <nav id="site-nav" aria-label="Navegación principal">
+      <input type="checkbox" id="nav-check" class="nav-check" aria-label="Abrir menú" />
+      <label for="nav-check" class="nav-burger" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </label>
+
+      <!-- Menú desplegable lateral -->
+      <div class="nav-menu">
+        <div class="nav-header">
+          <img src="img/logo.jpg" alt="Logo Cámara Peruana de Electromovilidad" class="nav-logo" />
+          <h3>Cámara Peruana de Electromovilidad</h3>
+        </div>
+        
+        <ul class="nav-list">
+          <li><a href="index.html">🏠 Inicio</a></li>
+          <li><a href="quienes-somos.html">👥 Quiénes Somos</a></li>
+          <li><a href="electromovilidad.html">⚡ Electromovilidad</a></li>
+          <li><a href="metas-2030.html">🎯 Metas 2030</a></li>
+          <li><a href="hoja-ruta.html">🗺️ Hoja de Ruta</a></li>
+          <li><a href="tco.html">💰 Coste Total de Propiedad (TCO)</a></li>
+          <li><a href="infraestructura.html">🏗️ Infraestructura</a></li>
+          <li><a href="hazte-parte.html">🤝 Hazte Parte</a></li>
+          <li><a href="centro-conocimiento.html">📚 Centro de Conocimiento</a></li>
+          <li><a href="proyectos.html">🚀 Proyectos</a></li>
+          <li><a href="faq.html">❓ Preguntas Frecuentes</a></li>
+          <li><a href="noticias.html">📰 Noticias</a></li>
+          <li><a href="contacto.html">📞 Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Título principal centrado -->
+    <div class="header-title">
+      <h1>Cámara Peruana de Electromovilidad</h1>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <section class="container">
+      <div class="brand">
+        <img src="img/logo.jpg" alt="Cámara Peruana de Electromovilidad" class="brand-logo small" />
+        <div class="brand-copy">
+          <h2>Coste Total de Propiedad (TCO)</h2>
+          <p>Análisis financiero para la toma de decisiones</p>
+        </div>
+      </div>
+      
+      <div class="grid-2">
+        <div>
+          <h3>¿Qué es el TCO?</h3>
+          <p>El Coste Total de Propiedad (TCO) es una métrica financiera que considera todos los costos asociados con la adquisición, operación y mantenimiento de un vehículo durante su vida útil completa.</p>
+          
+          <h3>Componentes del TCO</h3>
+          <ul class="list-check">
+            <li><strong>Costo de adquisición:</strong> Precio de compra inicial</li>
+            <li><strong>Financiamiento:</strong> Intereses y comisiones</li>
+            <li><strong>Combustible/Energía:</strong> Costos de operación</li>
+            <li><strong>Mantenimiento:</strong> Servicios y repuestos</li>
+            <li><strong>Seguros:</strong> Cobertura y primas</li>
+            <li><strong>Depreciación:</strong> Pérdida de valor</li>
+            <li><strong>Impuestos:</strong> Tributación aplicable</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3>Calculadora TCO</h3>
+          <div class="tco-calculator">
+            <form class="form">
+              <label>Tipo de Vehículo:</label>
+              <select name="tipo-vehiculo">
+                <option value="sedan">Sedán</option>
+                <option value="suv">SUV</option>
+                <option value="hatchback">Hatchback</option>
+                <option value="pickup">Pickup</option>
+              </select>
+              
+              <label>Precio de Compra (S/):</label>
+              <input type="number" name="precio" placeholder="150000" />
+              
+              <label>Kilómetros Anuales:</label>
+              <input type="number" name="km-anuales" placeholder="15000" />
+              
+              <label>Años de Uso:</label>
+              <input type="number" name="anos-uso" placeholder="5" />
+              
+              <button type="submit" class="btn btn-primary">Calcular TCO</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <h3>Comparación TCO: Eléctrico vs Convencional</h3>
+      <div class="tco-comparison">
+        <div class="comparison-grid">
+          <div class="comparison-item">
+            <h4>🚗 Vehículo Convencional</h4>
+            <div class="cost-breakdown">
+              <div class="cost-item">
+                <span>Adquisición:</span>
+                <span>S/ 120,000</span>
+              </div>
+              <div class="cost-item">
+                <span>Combustible (5 años):</span>
+                <span>S/ 45,000</span>
+              </div>
+              <div class="cost-item">
+                <span>Mantenimiento:</span>
+                <span>S/ 15,000</span>
+              </div>
+              <div class="cost-item">
+                <span>Seguros:</span>
+                <span>S/ 12,000</span>
+              </div>
+              <div class="cost-item total">
+                <span><strong>TOTAL TCO:</strong></span>
+                <span><strong>S/ 192,000</strong></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="comparison-item">
+            <h4>⚡ Vehículo Eléctrico</h4>
+            <div class="cost-breakdown">
+              <div class="cost-item">
+                <span>Adquisición:</span>
+                <span>S/ 150,000</span>
+              </div>
+              <div class="cost-item">
+                <span>Electricidad (5 años):</span>
+                <span>S/ 8,000</span>
+              </div>
+              <div class="cost-item">
+                <span>Mantenimiento:</span>
+                <span>S/ 5,000</span>
+              </div>
+              <div class="cost-item">
+                <span>Seguros:</span>
+                <span>S/ 10,000</span>
+              </div>
+              <div class="cost-item total">
+                <span><strong>TOTAL TCO:</strong></span>
+                <span><strong>S/ 173,000</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="savings-highlight">
+          <h4>💰 Ahorro Total: S/ 19,000 (10% menos)</h4>
+          <p>El vehículo eléctrico resulta más económico a largo plazo</p>
+        </div>
+      </div>
+
+      <h3>Factores que Influyen en el TCO</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>📈 Precio de Combustibles</h4>
+          <p>Los precios volátiles de los combustibles fósiles aumentan la incertidumbre en el TCO de vehículos convencionales.</p>
+        </div>
+        <div class="card">
+          <h4>⚡ Costo de Electricidad</h4>
+          <p>Los precios de la electricidad son más estables y predecibles, facilitando la planificación financiera.</p>
+        </div>
+        <div class="card">
+          <h4>🔧 Mantenimiento</h4>
+          <p>Los vehículos eléctricos requieren menos mantenimiento debido a la simplicidad de su motor.</p>
+        </div>
+        <div class="card">
+          <h4>🏛️ Incentivos Fiscales</h4>
+          <p>Exenciones de impuestos y subsidios pueden reducir significativamente el TCO de vehículos eléctricos.</p>
+        </div>
+      </div>
+
+      <h3>Herramientas de Análisis</h3>
+      <div class="grid-2">
+        <div>
+          <h4>Calculadora Avanzada</h4>
+          <p>Utiliza nuestra calculadora interactiva para analizar diferentes escenarios y encontrar la opción más rentable para tu caso específico.</p>
+          <a href="#" class="btn">Acceder a Calculadora</a>
+        </div>
+        <div>
+          <h4>Análisis Personalizado</h4>
+          <p>Nuestros expertos pueden realizar un análisis detallado considerando tus necesidades específicas y condiciones locales.</p>
+          <a href="contacto.html" class="btn btn-outline">Solicitar Análisis</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2024 Cámara Peruana de Electromovilidad. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    (function(){
+      // ---------------- MENÚ LATERAL ---------------- 
+      const navCheck = document.getElementById('nav-check');
+      const navBurger = document.querySelector('.nav-burger');
+      
+      if (navCheck && navBurger) {
+        // Cerrar menú al hacer click en un enlace
+        const navLinks = document.querySelectorAll('.nav-list a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            navCheck.checked = false;
+          });
+        });
+        
+        // Cerrar menú al hacer click fuera
+        document.addEventListener('click', (e) => {
+          if (!navCheck.contains(e.target) && !navBurger.contains(e.target)) {
+            navCheck.checked = false;
+          }
+        });
+        
+        // Cerrar con Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && navCheck.checked) {
+            navCheck.checked = false;
+          }
+        });
+      }
+    })();
+  </script>
+  
+</body>
+</html>

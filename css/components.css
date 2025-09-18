@@ -1,0 +1,524 @@
+/* ====== COMPONENTES REUTILIZABLES ====== */
+
+/* Botones mejorados */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--azul);
+  background: #fff;
+  color: var(--azul);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  background: var(--azul);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(11,61,145,.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--verde), #00d084);
+  border-color: var(--verde);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,168,89,.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #00d084, var(--verde));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,168,89,.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: var(--azul);
+}
+
+/* Cards mejoradas */
+.card {
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--verde), var(--azul));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.15);
+  border-color: var(--azul);
+}
+
+.card h4 {
+  margin: 0 0 0.8rem;
+  color: var(--azul);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Formularios mejorados */
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--borde);
+  border-radius: 12px;
+  margin: 0.5rem 0;
+  background: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  border-color: var(--azul);
+  box-shadow: 0 0 0 4px rgba(11,61,145,.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.form button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Listas mejoradas */
+.list-check {
+  list-style: none;
+  padding: 0;
+}
+
+.list-check li {
+  margin: 0.8rem 0;
+  padding-left: 0;
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.list-dash {
+  list-style: none;
+  padding: 0;
+}
+
+.list-dash li {
+  margin: 0.6rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.list-dash li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--azul);
+  font-weight: bold;
+}
+
+/* Chips/Tags mejorados */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  background: linear-gradient(135deg, #e8f4fd, #f0f8ff);
+  border: 1px solid #b3d9ff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  color: var(--azul);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.chips li:hover {
+  background: linear-gradient(135deg, var(--azul), #1e3a8a);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11,61,145,.3);
+}
+
+/* Grids mejorados */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .chips {
+    justify-content: center;
+  }
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Efectos de hover para imágenes */
+.electro-img img,
+.brand-logo,
+.project-card img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.electro-img img:hover,
+.brand-logo:hover,
+.project-card img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+/* Mejoras de accesibilidad */
+.btn:focus-visible,
+.card:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 2px;
+}
+
+/* Estados de carga */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--borde);
+  border-top: 2px solid var(--azul);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ====== COMPONENTES ESPECÍFICOS ====== */
+
+/* Timeline para hoja de ruta */
+.roadmap-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline-year {
+  background: linear-gradient(135deg, var(--azul), var(--verde));
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  min-width: 120px;
+  text-align: center;
+  margin-right: 2rem;
+  box-shadow: 0 4px 15px rgba(11,61,145,.3);
+}
+
+.timeline-content {
+  flex: 1;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--borde);
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.timeline-content h3 {
+  margin: 0 0 1rem;
+  color: var(--azul);
+  font-size: 1.3rem;
+}
+
+/* Progress bars */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e7ff;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--verde), var(--azul));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* TCO Calculator */
+.tco-calculator {
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--borde);
+}
+
+.tco-comparison {
+  margin: 2rem 0;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.comparison-item {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.comparison-item h4 {
+  margin: 0 0 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.cost-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cost-item.total {
+  border-top: 2px solid var(--azul);
+  border-bottom: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--azul);
+  margin-top: 0.5rem;
+}
+
+.savings-highlight {
+  background: linear-gradient(135deg, #e8f5e8, #f0f8ff);
+  border: 2px solid var(--verde);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.savings-highlight h4 {
+  color: var(--verde);
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+/* FAQ Section */
+.faq-section {
+  margin: 2rem 0;
+}
+
+.faq-section details {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+.faq-section summary {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--azul);
+  border-bottom: 1px solid var(--borde);
+  transition: background 0.3s ease;
+}
+
+.faq-section summary:hover {
+  background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+}
+
+.faq-section details[open] summary {
+  border-bottom: 1px solid var(--borde);
+}
+
+.faq-section p {
+  padding: 1.5rem;
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .timeline-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .timeline-year {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    align-self: center;
+  }
+  
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .nav-list a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Fix para iconos que se salen */
+.nav-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  min-width: 1.5rem;
+  text-align: center;
+  display: inline-block;
+  flex-shrink: 0;
+}
