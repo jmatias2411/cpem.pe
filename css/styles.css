@@ -1,0 +1,228 @@
+:root{
+  --azul:#0b3d91;
+  --verde:#00a859;
+  --gris:#f7f8fa;
+  --texto:#222;
+  --borde:#e6e9ef;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:system-ui, Arial, sans-serif;
+  color:var(--texto); background:var(--gris); line-height:1.6;
+}
+
+/* Header */
+header {
+  background: var(--azul);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* 🔹 Logo circular */
+header .logo img {
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;   /* hace el logo redondo */
+  object-fit: cover;    /* ajusta dentro del círculo */
+  background: #fff;     /* marco blanco */
+  padding: 4px;         /* pequeño espacio alrededor */
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Banner */
+.banner{
+  background:linear-gradient(135deg, rgba(11,61,145,.95), rgba(0,168,89,.85)), url('../img/banner.jpg') center/cover no-repeat;
+  color:#fff; text-align:center; padding:4.5rem 1.25rem;
+}
+.banner h1{margin:0 0 0.75rem; font-size:1.9rem}
+.banner p{max-width:900px; margin:0 auto 1.5rem}
+.botones .btn{margin:.25rem}
+
+/* Contenedores */
+.container{
+  background:#fff; border:1px solid var(--borde); border-radius:14px;
+  max-width:1000px; margin:1rem auto; padding:1.25rem;
+  box-shadow:0 4px 14px rgba(0,0,0,0.04);
+}
+h2{margin:.25rem 0 1rem}
+h3{margin:1rem 0 .5rem}
+
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
+@media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+
+.chips{display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none}
+.chips li{background:#eef4ff; border:1px solid #dce6ff; padding:.35rem .6rem; border-radius:999px}
+
+.list-check, .list-dash{padding-left:1.25rem}
+.list-check li{margin:.25rem 0; list-style:"✅ "}
+.list-dash li{margin:.25rem 0; list-style:"— "}
+
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
+.card{border:1px solid var(--borde); border-radius:12px; padding:1rem; background:#fff}
+.card .tag{font-size:.9rem; color:#555}
+
+/* Llamadas a la acción */
+.btn{
+  display:inline-block; padding:.7rem 1rem; border-radius:8px; border:2px solid var(--azul);
+  background:#fff; color:var(--azul); text-decoration:none; font-weight:700;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.btn:hover{filter:brightness(.98); transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.btn-primary{background:var(--verde); border-color:var(--verde); color:#fff}
+.btn-outline{background:transparent; color:#fff; border-color:#fff}
+
+/* Formulario */
+.form input, .form textarea{width:100%; padding:.8rem; border:1px solid var(--borde); border-radius:8px; margin:.35rem 0}
+.form button{width:100%}
+
+/* Noticias */
+.news{margin:0; padding-left:1.2rem}
+.news li{margin:.4rem 0}
+
+/* Footer */
+footer{
+  text-align:center; color:#9aa3ad; padding:1rem; margin:1rem 0 2rem;
+  font-size:.95rem;
+}
+
+/* ——— mejoras añadidas ——— */
+
+/* Más espacio y ancho algo mayor en secciones */
+.container{
+  margin:2rem auto;              /* más separación vertical */
+  padding:2rem 1.5rem;           /* más respiración interna */
+  max-width:1100px;              /* un pelín más ancho */
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+/* Bloque de MARCA (logo grande) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.brand-logo {
+  width: 300px;   /* antes 220px */
+  height: auto;   /* para mantener proporción */
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 24px;
+  padding: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+.brand-copy {
+  text-align: left;
+}
+
+.brand-copy h2 {
+  margin: .25rem 0 .5rem;
+  font-size: 2rem; /* más grande para balancear */
+}
+
+.brand-copy p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .brand {
+    flex-direction: column;
+    text-align: center;
+  }
+  .brand-copy { text-align: center; }
+  .brand-logo { width: 220px; }
+}
+
+/* Carrusel de Proyectos */
+.proyectos-head{display:flex; align-items:center; justify-content:space-between; gap:1rem}
+.proyectos-head .muted{color:#666; margin:0}
+
+.slider{
+  margin-top:1rem;
+  display:grid; grid-auto-flow:column; grid-auto-columns:minmax(280px, 360px);
+  gap:1rem; overflow-x:auto; padding-bottom:.5rem;
+  scroll-snap-type:x mandatory; scrollbar-width:thin;
+}
+.slider::-webkit-scrollbar{height:8px}
+.slider::-webkit-scrollbar-thumb{background:#c9d4e6; border-radius:8px}
+
+.project-card{
+  scroll-snap-align:start;
+  background:#fff; border:1px solid var(--borde); border-radius:14px; overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+.project-card img{width:100%; height:200px; object-fit:cover; display:block}
+.project-info{padding:1rem}
+.project-info .tag{font-size:.9rem; color:#555}
+
+/* Controles del carrusel */
+.slider-controls{display:flex; gap:.5rem}
+.slider-btn{
+  background:#fff; color:var(--azul); border:1px solid var(--borde);
+  padding:.4rem .7rem; border-radius:8px; cursor:pointer; font-weight:700;
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+.slider-btn:hover{background:#f0f4ff}
+
+/* Responsive */
+@media (max-width:900px){
+  .grid-2{grid-template-columns:1fr}
+  .brand{flex-direction:column; text-align:center}
+  .brand-copy{text-align:center}
+  .brand-logo{width:180px; height:180px}
+}
+
+/* Electromovilidad con imagen lateral */
+.electro{
+  display:grid;
+  grid-template-columns: 2fr 1fr; /* texto más ancho */
+  gap:2rem;
+  align-items:center;
+}
+
+.electro-img img{
+  width:100%;
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  object-fit:cover;
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .electro{
+    grid-template-columns:1fr;
+  }
+  .electro-img{
+    margin-top:1rem;
+  }
+}
