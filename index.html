@@ -10,27 +10,47 @@
 <body>
 
   <!-- HEADER -->
-  <header>
-    <div class="logo">
-      <img src="img/logo.jpg" alt="Logo Cámara Peruana de Electromovilidad" />
-    </div>
-    <nav id="site-nav">
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#quienes">Quiénes Somos</a></li>
-        <li><a href="#electro">Electromovilidad</a></li>
-        <li><a href="#hazte-parte">Hazte Parte</a></li>
-        <li><a href="#centro">Centro de Conocimiento</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#noticias">Noticias</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <div class="logo">
+    <img src="img/logo.jpg" alt="Logo Cámara Peruana de Electromovilidad" />
+  </div>
+
+  <nav id="site-nav" aria-label="Navegación principal">
+    <!-- Botón hamburguesa (móvil) -->
+    <input type="checkbox" id="nav-check" class="nav-check" aria-label="Abrir menú" />
+    <label for="nav-check" class="nav-burger" aria-label="Abrir menú" aria-controls="site-nav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </label>
+
+    <!-- Lista de enlaces -->
+    <ul class="nav-list">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#quienes">Quiénes Somos</a></li>
+      <li><a href="#electro">Electromovilidad</a></li>
+      <li><a href="#metas">Metas 2030</a></li>
+      <li><a href="#hoja-ruta">Hoja de Ruta</a></li>
+      <li><a href="#tco">Coste Total de Propiedad (TCO)</a></li>
+      <li><a href="#infra">Infraestructura</a></li>
+      <li><a href="#hazte-parte">Hazte Parte</a></li>
+      <li><a href="#centro">Centro de Conocimiento</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#faq">Preguntas Frecuentes</a></li>
+      <li><a href="#noticias">Noticias</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+
+      <!-- Botón Más (lo rellena el JS con enlaces que no caben) -->
+      <li class="nav-more" aria-haspopup="true" aria-expanded="false">
+        <button class="more-btn" type="button">Más ▾</button>
+        <ul class="more-menu"></ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+    
 
   <!-- INICIO -->
-  <section id="inicio" class="banner">
-    <h1>“Porque cada persona merece un aire limpio, un transporte accesible y un futuro sostenible.”</h1>
+  <section id="inicio" class="banner" role="region" aria-labelledby="inicio-title">
+    <h1 id="inicio-title">“Porque cada persona merece un aire limpio, un transporte accesible y un futuro sostenible.”</h1>
     <p>
       La Cámara Peruana de Electromovilidad nace para transformar la forma en que nos movemos.
       Nuestro compromiso es con las personas, sus familias y su bienestar. Conectamos a ciudadanos,
@@ -82,7 +102,7 @@
       </div>
     </div>
     <h3>Nuestros valores</h3>
-    <ul class="chips">
+    <ul class="chips" aria-label="Valores de la organización">
       <li>🌱 Bienestar de las personas</li>
       <li>🤝 Inclusión</li>
       <li>🔌 Innovación</li>
@@ -92,31 +112,135 @@
   </section>
 
   <!-- ELECTROMOVILIDAD -->
-  <!-- ELECTROMOVILIDAD -->
-<section id="electro" class="container electro">
-  <div class="electro-text">
-    <h2>Electromovilidad</h2>
-    <p>La electromovilidad no es solo tecnología, es calidad de vida:</p>
-    <ul class="list-check">
-      <li>Respirar un aire más limpio.</li>
-      <li>Ahorrar dinero en combustible y mantenimiento.</li>
-      <li>Viajar en vehículos silenciosos y modernos.</li>
-      <li>Vivir en ciudades menos contaminadas y más ordenadas.</li>
-    </ul>
+  <section id="electro" class="container electro">
+    <div class="electro-text">
+      <h2>Electromovilidad</h2>
+      <p>La electromovilidad no es solo tecnología, es calidad de vida:</p>
+      <ul class="list-check">
+        <li>Respirar un aire más limpio.</li>
+        <li>Ahorrar dinero en combustible y mantenimiento.</li>
+        <li>Viajar en vehículos silenciosos y modernos.</li>
+        <li>Vivir en ciudades menos contaminadas y más ordenadas.</li>
+      </ul>
 
-    <h3>Situación en el Perú</h3>
-    <ul class="list-dash">
-      <li>Cada año más peruanos optan por autos, motos y bicicletas eléctricas.</li>
-      <li>Se están instalando electrolineras en Lima y varias regiones.</li>
-      <li>Los buses eléctricos comienzan a cambiar la experiencia del transporte público.</li>
-    </ul>
-  </div>
+      <h3>Situación en el Perú</h3>
+      <ul class="list-dash">
+        <li>Cada año más peruanos optan por autos, motos y bicicletas eléctricas.</li>
+        <li>Se están instalando electrolineras en Lima y varias regiones.</li>
+        <li>Los buses eléctricos comienzan a cambiar la experiencia del transporte público.</li>
+      </ul>
+    </div>
 
-  <div class="electro-img">
-    <img src="img/electro.png" alt="Ilustración electromovilidad en Perú">
-  </div>
-</section>
+    <div class="electro-img">
+      <img src="img/electro.png" alt="Ilustración electromovilidad en Perú">
+    </div>
+  </section>
 
+  <!-- METAS 2030 -->
+  <section id="metas" class="container">
+    <h2>Metas 2030 para el Perú</h2>
+    <div class="grid-3">
+      <div class="card stat">
+        <h3>20% de ventas</h3>
+        <p>Que al menos el 20% de las ventas anuales de vehículos nuevos particulares sean eléctricos e híbridos en 2030.</p>
+      </div>
+      <div class="card stat">
+        <h3>50% sector público</h3>
+        <p>Al menos 50% de adquisiciones del Estado sean vehículos eléctricos e híbridos en 2030.</p>
+      </div>
+      <div class="card stat">
+        <h3>35% transporte público</h3>
+        <p>Al menos 35% de las adquisiciones de flotas de transporte público sean electrificadas para 2030.</p>
+      </div>
+    </div>
+    <p class="muted">Estas metas forman parte de la propuesta del Plan Nacional de Electromovilidad y buscan guiar la transición tecnológica del país.</p>
+  </section>
+
+  <!-- HOJA DE RUTA -->
+  <section id="hoja-ruta" class="container">
+    <h2>Hoja de Ruta: ¿Cómo aceleramos el cambio?</h2>
+    <div class="grid-3">
+      <article class="card">
+        <h3>Condiciones habilitantes</h3>
+        <ul class="list-dash">
+          <li>Aprobación del Plan Nacional y regulación de infraestructura de carga.</li>
+          <li>Homologación vehicular y operación de ITV/maintenance para EV.</li>
+          <li>Interoperabilidad de estaciones y gestión de materiales peligrosos.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Incentivos inteligentes</h3>
+        <ul class="list-dash">
+          <li>Reducción temporal de IGV, Ad-Valorem, IPV e IPM para EV.</li>
+          <li>Peajes y estacionamiento preferente, SOAT/RTV diferenciados.</li>
+          <li>Tarifa eléctrica residencial con “super valle” para carga nocturna.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Industria & talento</h3>
+        <ul class="list-dash">
+          <li>Fondo Nacional de Electromovilidad y programas concursables.</li>
+          <li>APPs y garantías de crédito para flotas e infraestructura.</li>
+          <li>Formación técnica y estándares para servicios EV.</li>
+        </ul>
+      </article>
+    </div>
+    <p class="muted">Actores clave: MINEM, MINAM, MTC, MEF, ATU, OSINERGMIN, INACAL, SUNAT y gobiernos locales, entre otros.</p>
+  </section>
+
+  <!-- TCO Y DEMANDA -->
+  <section id="tco" class="container">
+    <h2>Coste Total de Propiedad (TCO) y Demanda</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Paridad de costos</h3>
+        <p>
+          Con incentivos adecuados, la paridad TCO entre eléctricos (BEV) y combustión (ICE)
+          se adelanta hasta 11 años para livianos y camiones, y 8 años para buses, frente al escenario base.
+        </p>
+        <ul class="list-check">
+          <li>Livianos: paridad tan pronto como 2025 en escenario alto.</li>
+          <li>Buses: paridad posible desde 2022 en escenario alto.</li>
+          <li>Camiones ligeros: paridad alrededor de 2025 en escenario alto.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Proyección de adopción</h3>
+        <p>Para 2030, las ventas de vehículos electrificados podrían alcanzar ~24% del mercado y ~4.8% del parque.</p>
+        <p>La difusión se acelera con infraestructura, incentivos y tarifas eléctricas adecuadas.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Dato verde:</strong> La reducción acumulada de emisiones al 2030 puede superar 1.2 millones de toneladas de CO₂eq, con ~405 mil toneladas solo en 2030, superando en ~26% la meta NDC atribuible a BEV. 
+    </div>
+  </section>
+
+  <!-- INFRAESTRUCTURA -->
+  <section id="infra" class="container">
+    <h2>Infraestructura de Carga</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Disponibilidad energética</h3>
+        <p>
+          La demanda eléctrica proyectada para carga vehicular es manejable dentro de la producción nacional,
+          y la potencia requerida encaja con la capacidad instalada contemplando escenarios conservadores.
+        </p>
+        <ul class="list-dash">
+          <li>Foco en carga residencial nocturna y red pública rápida en corredores.</li>
+          <li>Interoperabilidad y métodos de pago unificados para mejor experiencia.</li>
+          <li>Impulso de renovables en la matriz energética para “carga limpia”.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Estándares & ciudades</h3>
+        <p>
+          Normas para instalación en estacionamientos, etiquetado de eficiencia y
+          políticas urbanas (peaje/estacionamiento preferente) reducen fricción de adopción.
+        </p>
+        <p class="muted">Esto acelera el cambio conductual y facilita la inversión privada.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- HAZTE PARTE -->
   <section id="hazte-parte" class="container">
@@ -179,7 +303,7 @@
     </div>
 
     <div class="slider" aria-live="polite">
-      <!-- Tarjeta -->
+      <!-- Tarjetas de ejemplo -->
       <article class="project-card">
         <img src="img/proy-rutas.jpg" alt="Proyecto Rutas Verdes - buses eléctricos" loading="lazy" />
         <div class="project-info">
@@ -254,6 +378,35 @@
     </div>
   </section>
 
+  <!-- PREGUNTAS FRECUENTES -->
+  <section id="faq" class="container">
+    <h2>Preguntas Frecuentes</h2>
+
+    <details class="faq">
+      <summary>¿Los vehículos eléctricos son más caros que los de combustión?</summary>
+      <p>
+        El precio de compra puede ser mayor, pero el TCO tiende a ser menor por ahorro en energía y mantenimiento.
+        Con incentivos adecuados, la paridad de costos se adelanta significativamente en livianos, buses y camiones.
+      </p>
+    </details>
+
+    <details class="faq">
+      <summary>¿Tenemos suficiente energía para cargar una gran flota de EV?</summary>
+      <p>
+        Sí. Las proyecciones muestran que la energía demandada por la electrificación es manejable respecto a la
+        energía producida y la potencia instalada, especialmente con gestión de carga nocturna y renovables.
+      </p>
+    </details>
+
+    <details class="faq">
+      <summary>¿Qué políticas aceleran más la adopción?</summary>
+      <p>
+        Las de reducción de costo de adquisición (tributaria/financiera), promoción de flotas públicas y logísticas,
+        y expansión de infraestructura interoperable; todo en coordinación multisectorial.
+      </p>
+    </details>
+  </section>
+
   <!-- NOTICIAS -->
   <section id="noticias" class="container">
     <h2>Noticias</h2>
@@ -271,11 +424,11 @@
     <p>¿Quieres unirte al movimiento eléctrico? Estamos aquí para escucharte.</p>
     <div class="grid-2">
       <div>
-        <p>📍 <strong>Dirección:</strong> Lima, Perú</p>
-        <p>📞 <strong>Teléfono:</strong> +51 1 123 4567</p>
+        <p>📍 <strong>Dirección:</strong> Av. Edilberto Ramos Mz J Lt 14, Alfonso Ugarte, San Juan de Miraflores, Lima</p>
+        <p>📞 <strong>Teléfono:</strong> +51 923 399 310</p>
         <p>✉ <strong>Correo:</strong> <a href="mailto:contacto@cpem.pe">contacto@cpem.pe</a></p>
       </div>
-      <form class="form">
+      <form class="form" aria-label="Formulario de contacto">
         <input type="text" name="nombre" placeholder="Nombre" required />
         <input type="email" name="email" placeholder="Email" required />
         <textarea name="mensaje" rows="5" placeholder="Mensaje"></textarea>
@@ -288,35 +441,102 @@
     <p>&copy; 2025 Cámara Peruana de Electromovilidad · Todos los derechos reservados</p>
   </footer>
 
-  <!-- Carrusel: autoplay + controles -->
+  <!-- Carrusel: autoplay + controles + FAQ -->
   <script>
     (function(){
+      // ---------------- SLIDER ----------------
       const slider = document.querySelector('.slider');
       const prev = document.querySelector('.slider-btn.prev');
       const next = document.querySelector('.slider-btn.next');
       let paused = false;
-
+  
       function cardWidth(){
         const card = slider.querySelector('.project-card');
         return card ? card.getBoundingClientRect().width + 16 : 320; // +gap
       }
-
+  
       function go(dir=1){
         slider.scrollBy({left: dir * cardWidth(), behavior: 'smooth'});
       }
-
+  
       let auto = setInterval(()=>{ if(!paused) go(1); }, 3500);
-
-      slider.addEventListener('mouseenter', ()=>paused=true);
-      slider.addEventListener('mouseleave', ()=>paused=false);
-      prev.addEventListener('click', ()=>go(-1));
-      next.addEventListener('click', ()=>go(1));
-
-      // rebote suave al final
-      slider.addEventListener('scroll', ()=>{
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 2) { /* fin */ }
+  
+      if (slider){
+        slider.addEventListener('mouseenter', ()=>paused=true);
+        slider.addEventListener('mouseleave', ()=>paused=false);
+        prev?.addEventListener('click', ()=>go(-1));
+        next?.addEventListener('click', ()=>go(1));
+      }
+  
+      // ---------------- FAQ (acordeón) ----------------
+      const faqs = document.querySelectorAll('#faq details');
+      faqs.forEach((d)=>{
+        d.addEventListener('toggle', ()=>{
+          if(d.open){
+            faqs.forEach((o)=>{ if(o!==d) o.removeAttribute('open'); });
+          }
+        });
       });
+  
+      // ---------------- NAV MÁS (overflow inteligente) ----------------
+      const nav = document.querySelector('#site-nav');
+      if(nav){
+        const list = nav.querySelector('.nav-list');
+        const more = nav.querySelector('.nav-more');
+        const moreBtn = nav.querySelector('.more-btn');
+        const moreMenu = nav.querySelector('.more-menu');
+  
+        if (list && more && moreBtn && moreMenu){
+          function toggleMore(open){
+            more.classList.toggle('open', open);
+            more.setAttribute('aria-expanded', String(!!open));
+          }
+  
+          document.addEventListener('click', (e)=>{
+            if(!more.contains(e.target)) toggleMore(false);
+          });
+          moreBtn.addEventListener('click', (e)=>{
+            e.stopPropagation();
+            toggleMore(!more.classList.contains('open'));
+          });
+  
+          function rebalance(){
+            // devolver todo al menú principal
+            const back = Array.from(moreMenu.children);
+            back.forEach(li => list.insertBefore(li, more));
+  
+            more.style.display = 'none';
+            toggleMore(false);
+  
+            const available = list.clientWidth - more.offsetWidth - 8; // espacio disponible
+            let total = 0;
+            let overflowFrom = -1;
+  
+            const visibles = Array.from(list.children).filter(li => !li.classList.contains('nav-more'));
+            for (let i=0;i<visibles.length;i++){
+              total += visibles[i].offsetWidth + 16; // gap aproximado
+              if (total > available){
+                overflowFrom = i;
+                break;
+              }
+            }
+  
+            if (overflowFrom !== -1){
+              more.style.display = 'block';
+              for (let i = visibles.length - 1; i >= overflowFrom; i--){
+                moreMenu.insertBefore(visibles[i], moreMenu.firstChild);
+              }
+            }
+          }
+  
+          let raf;
+          function onResize(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(rebalance); }
+          window.addEventListener('load', rebalance);
+          window.addEventListener('resize', onResize);
+        }
+      }
     })();
   </script>
+  
 </body>
 </html>

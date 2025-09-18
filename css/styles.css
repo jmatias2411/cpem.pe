@@ -1,166 +1,184 @@
 :root{
   --azul:#0b3d91;
+  --azul-600:#0a3278;
   --verde:#00a859;
+  --verde-600:#00914d;
   --gris:#f7f8fa;
+  --gris-2:#f2f5f9;
   --texto:#222;
   --borde:#e6e9ef;
+  --shadow:0 10px 30px rgba(0,0,0,.06);
+  --radius:16px;
 }
 
+/* Reset y tipografía base */
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0; font-family:system-ui, Arial, sans-serif;
-  color:var(--texto); background:var(--gris); line-height:1.6;
+  color:var(--texto); background:var(--gris); line-height:1.65;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+h1,h2{line-height:1.25}
+h1{font-size:clamp(1.8rem, 2.5vw, 2.4rem)}
+h2{font-size:clamp(1.4rem, 1.8vw, 1.8rem)}
+h3{font-size:clamp(1.05rem, 1.2vw, 1.2rem)}
+
+/* Header: más aire + hamburguesa móvil */
+header{
+  background: linear-gradient(180deg, var(--azul), var(--azul-600));
+  color:#fff;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem;
+  padding: .9rem 1.25rem;   /* más aire */
+  position:sticky; top:0; z-index:20;
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
 }
 
-/* Header */
-header {
-  background: var(--azul);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.6rem 1.25rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+/* Logo circular */
+header .logo img{
+  height:56px; width:56px; border-radius:50%;
+  object-fit:cover; background:#fff; padding:4px; display:block;
+  box-shadow:0 2px 6px rgba(0,0,0,.15);
 }
 
-/* 🔹 Logo circular */
-header .logo img {
-  height: 56px;
-  width: 56px;
-  border-radius: 50%;   /* hace el logo redondo */
-  object-fit: cover;    /* ajusta dentro del círculo */
-  background: #fff;     /* marco blanco */
-  padding: 4px;         /* pequeño espacio alrededor */
-  display: block;
+/* --- Nav base (desktop) --- */
+nav ul{
+  list-style:none; display:flex; gap:1.1rem;
+  margin:0; padding:0;
+}
+nav a{
+  color:#fff; text-decoration:none; font-weight:700;
+  padding:.45rem .55rem; border-radius:8px;
+  transition:background .15s ease, transform .12s ease, color .15s ease;
+}
+nav a:hover{background:rgba(255,255,255,.12); transform:translateY(-1px)}
+nav a:focus-visible{outline:2px solid #fff; outline-offset:2px}
+
+/* --- Hamburguesa (móvil) --- */
+.nav-check{display:none}
+.nav-burger{
+  display:none; cursor:pointer; width:44px; height:44px;
+  align-items:center; justify-content:center; border-radius:10px;
+  border:1px solid rgba(255,255,255,.25);
+}
+.nav-burger span{
+  display:block; width:22px; height:2px; background:#fff; margin:4px 0; transition:transform .2s ease, opacity .2s ease;
+  border-radius:2px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.1rem;
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Banner */
-.banner{
-  background:linear-gradient(135deg, rgba(11,61,145,.95), rgba(0,168,89,.85)), url('../img/banner.jpg') center/cover no-repeat;
-  color:#fff; text-align:center; padding:4.5rem 1.25rem;
-}
-.banner h1{margin:0 0 0.75rem; font-size:1.9rem}
-.banner p{max-width:900px; margin:0 auto 1.5rem}
-.botones .btn{margin:.25rem}
-
-/* Contenedores */
+/* Layout contenedor (más ancho y sombra suave) */
 .container{
-  background:#fff; border:1px solid var(--borde); border-radius:14px;
-  max-width:1000px; margin:1rem auto; padding:1.25rem;
-  box-shadow:0 4px 14px rgba(0,0,0,0.04);
+  background:#fff; border:1px solid var(--borde); border-radius:var(--radius);
+  max-width:1100px; margin:2rem auto; padding:2rem 1.5rem;
+  box-shadow: var(--shadow);
 }
-h2{margin:.25rem 0 1rem}
-h3{margin:1rem 0 .5rem}
 
-.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:1rem}
+/* Titulares con acento (rayita) */
+.container h2{
+  margin:.25rem 0 1rem; position:relative; padding-bottom:.25rem;
+}
+.container h2::after{
+  content:""; position:absolute; left:0; bottom:-6px; width:64px; height:4px;
+  background: linear-gradient(90deg, var(--verde), var(--azul));
+  border-radius:4px;
+}
+
+/* Subtítulos */
+h3{margin:1rem 0 .6rem}
+
+/* Grids */
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:1.25rem}
 @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
 
-.chips{display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none}
-.chips li{background:#eef4ff; border:1px solid #dce6ff; padding:.35rem .6rem; border-radius:999px}
-
-.list-check, .list-dash{padding-left:1.25rem}
-.list-check li{margin:.25rem 0; list-style:"✅ "}
-.list-dash li{margin:.25rem 0; list-style:"— "}
-
-.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem}
-.card{border:1px solid var(--borde); border-radius:12px; padding:1rem; background:#fff}
-.card .tag{font-size:.9rem; color:#555}
-
-/* Llamadas a la acción */
-.btn{
-  display:inline-block; padding:.7rem 1rem; border-radius:8px; border:2px solid var(--azul);
-  background:#fff; color:var(--azul); text-decoration:none; font-weight:700;
-  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.1rem}
+.card{
+  border:1px solid var(--borde); border-radius:14px; padding:1rem; background:#fff;
+  box-shadow:0 6px 16px rgba(0,0,0,.04);
+  transition: transform .12s ease, box-shadow .12s ease;
 }
-.btn:hover{filter:brightness(.98); transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.12)}
-.btn-primary{background:var(--verde); border-color:var(--verde); color:#fff}
-.btn-outline{background:transparent; color:#fff; border-color:#fff}
+.card:hover{transform:translateY(-3px); box-shadow:0 14px 28px rgba(0,0,0,.08)}
+.card .tag{font-size:.92rem; color:#555}
 
-/* Formulario */
-.form input, .form textarea{width:100%; padding:.8rem; border:1px solid var(--borde); border-radius:8px; margin:.35rem 0}
+/* Chips y listas */
+.chips{display:flex; flex-wrap:wrap; gap:.5rem; padding:0; list-style:none}
+.chips li{
+  background:#eef4ff; border:1px solid #dce6ff; padding:.35rem .6rem; border-radius:999px;
+}
+.list-check, .list-dash{padding-left:1.25rem; margin:.4rem 0}
+.list-check li{margin:.25rem 0; list-style:"✅ "}
+.list-dash  li{margin:.25rem 0; list-style:"— "}
+
+/* Banner más legible + tipografía fluida */
+.banner{
+  background:linear-gradient(135deg, rgba(11,61,145,.95), rgba(0,168,89,.85)), url('../img/banner.jpg') center/cover no-repeat;
+  color:#fff; text-align:center; padding: clamp(3rem, 8vw, 6rem) 1.25rem;
+}
+.banner h1{margin:0 0 .85rem; font-size:clamp(1.9rem, 3vw, 2.6rem)}
+.banner p{max-width:900px; margin:0 auto 1.6rem; font-size:clamp(1rem, 1.2vw, 1.1rem)}
+.botones .btn{margin:.25rem}
+
+/* Botones */
+.btn{
+  display:inline-block; padding:.75rem 1rem; border-radius:10px; border:2px solid var(--azul);
+  background:#fff; color:var(--azul); text-decoration:none; font-weight:800;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease, background .12s ease, color .12s ease;
+}
+.btn:hover{filter:brightness(.98); transform:translateY(-1px); box-shadow:0 8px 18px rgba(0,0,0,.12)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{outline:3px solid rgba(11,61,145,.35); outline-offset:2px}
+
+.btn-primary{background:var(--verde); border-color:var(--verde); color:#fff}
+.btn-primary:hover{background:var(--verde-600)}
+.btn-outline{background:transparent; color:#fff; border-color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,.15)}
+
+/* Formulario más pro */
+.form input, .form textarea{
+  width:100%; padding:.9rem; border:1px solid var(--borde); border-radius:10px; margin:.45rem 0;
+  background:#fff; transition: box-shadow .12s ease, border-color .12s ease;
+}
+.form input:focus, .form textarea:focus{
+  border-color:#b9c7ff; box-shadow:0 0 0 4px rgba(87,114,255,.15); outline:none;
+}
 .form button{width:100%}
 
 /* Noticias */
 .news{margin:0; padding-left:1.2rem}
-.news li{margin:.4rem 0}
+.news li{margin:.44rem 0}
 
 /* Footer */
 footer{
-  text-align:center; color:#9aa3ad; padding:1rem; margin:1rem 0 2rem;
-  font-size:.95rem;
-}
-
-/* ——— mejoras añadidas ——— */
-
-/* Más espacio y ancho algo mayor en secciones */
-.container{
-  margin:2rem auto;              /* más separación vertical */
-  padding:2rem 1.5rem;           /* más respiración interna */
-  max-width:1100px;              /* un pelín más ancho */
-  border-radius:16px;
-  box-shadow:0 8px 24px rgba(0,0,0,.05);
+  text-align:center; color:#9aa3ad; padding:1.25rem; margin:1.5rem 0 2.4rem;
+  font-size:.98rem;
 }
 
 /* Bloque de MARCA (logo grande) */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  justify-content: center;
+.brand{display:flex; align-items:center; gap:2rem; justify-content:center}
+.brand-logo{
+  width:300px; height:auto; object-fit:contain; background:#fff;
+  border:1px solid var(--borde); border-radius:24px; padding:15px; box-shadow: var(--shadow);
+}
+.brand-copy{text-align:left}
+.brand-copy h2{margin:.25rem 0 .5rem; font-size:clamp(1.4rem, 2vw, 2rem)}
+.brand-copy p{margin:0}
+@media (max-width:900px){
+  .brand{flex-direction:column; text-align:center}
+  .brand-copy{text-align:center}
+  .brand-logo{width:220px}
 }
 
-.brand-logo {
-  width: 300px;   /* antes 220px */
-  height: auto;   /* para mantener proporción */
-  object-fit: contain;
-  background: #fff;
-  border: 1px solid var(--borde);
-  border-radius: 24px;
-  padding: 15px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+/* Electromovilidad con imagen lateral */
+.electro{
+  display:grid; grid-template-columns: 1.5fr 1fr; gap:2rem; align-items:center;
 }
-
-.brand-copy {
-  text-align: left;
+.electro-img img{
+  width:100%; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.08); object-fit:cover;
 }
-
-.brand-copy h2 {
-  margin: .25rem 0 .5rem;
-  font-size: 2rem; /* más grande para balancear */
-}
-
-.brand-copy p {
-  margin: 0;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .brand {
-    flex-direction: column;
-    text-align: center;
-  }
-  .brand-copy { text-align: center; }
-  .brand-logo { width: 220px; }
+@media (max-width:900px){
+  .electro{grid-template-columns:1fr}
+  .electro-img{margin-top:1rem}
 }
 
 /* Carrusel de Proyectos */
@@ -170,17 +188,18 @@ footer{
 .slider{
   margin-top:1rem;
   display:grid; grid-auto-flow:column; grid-auto-columns:minmax(280px, 360px);
-  gap:1rem; overflow-x:auto; padding-bottom:.5rem;
+  gap:1rem; overflow-x:auto; padding: .25rem 0 .75rem;
   scroll-snap-type:x mandatory; scrollbar-width:thin;
 }
 .slider::-webkit-scrollbar{height:8px}
 .slider::-webkit-scrollbar-thumb{background:#c9d4e6; border-radius:8px}
 
 .project-card{
-  scroll-snap-align:start;
-  background:#fff; border:1px solid var(--borde); border-radius:14px; overflow:hidden;
-  box-shadow:0 8px 20px rgba(0,0,0,.05);
+  scroll-snap-align:start; background:#fff; border:1px solid var(--borde);
+  border-radius:14px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,.05);
+  transition: transform .12s ease, box-shadow .12s ease;
 }
+.project-card:hover{transform:translateY(-3px); box-shadow:0 16px 28px rgba(0,0,0,.09)}
 .project-card img{width:100%; height:200px; object-fit:cover; display:block}
 .project-info{padding:1rem}
 .project-info .tag{font-size:.9rem; color:#555}
@@ -189,40 +208,161 @@ footer{
 .slider-controls{display:flex; gap:.5rem}
 .slider-btn{
   background:#fff; color:var(--azul); border:1px solid var(--borde);
-  padding:.4rem .7rem; border-radius:8px; cursor:pointer; font-weight:700;
+  padding:.45rem .75rem; border-radius:10px; cursor:pointer; font-weight:800;
   box-shadow:0 4px 10px rgba(0,0,0,.05);
+  transition: background .12s ease, transform .12s ease;
 }
-.slider-btn:hover{background:#f0f4ff}
+.slider-btn:hover{background:#f0f4ff; transform:translateY(-1px)}
 
-/* Responsive */
-@media (max-width:900px){
-  .grid-2{grid-template-columns:1fr}
-  .brand{flex-direction:column; text-align:center}
-  .brand-copy{text-align:center}
-  .brand-logo{width:180px; height:180px}
+/* Alternancia sutil de secciones (opcional: aplica a contenedores de segundo nivel) */
+.container:nth-of-type(odd){
+  background: #fff;
 }
-
-/* Electromovilidad con imagen lateral */
-.electro{
-  display:grid;
-  grid-template-columns: 2fr 1fr; /* texto más ancho */
-  gap:2rem;
-  align-items:center;
+.container:nth-of-type(even){
+  background: linear-gradient(180deg, #ffffff, #fbfcff);
 }
 
-.electro-img img{
-  width:100%;
-  border-radius:14px;
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-  object-fit:cover;
+/* Estados de foco globales */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:3px solid rgba(11,61,145,.25); outline-offset:2px;
+  border-radius:8px;
 }
 
-/* Responsive */
-@media (max-width:900px){
-  .electro{
-    grid-template-columns:1fr;
+/* Animaciones: respetar usuarios con reduce-motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+}
+
+/* ---------- Nav responsive (hamburguesa) ---------- */
+@media (max-width: 980px){
+  /* muestra hamburguesa, oculta nav en línea */
+  .nav-burger{display:flex}
+  nav{
+    position: fixed; top:70px; right:16px; left:16px; z-index:19;
+    background:#ffffff; color:#222; border:1px solid var(--borde);
+    border-radius:14px; padding:.6rem; box-shadow:0 16px 30px rgba(0,0,0,.12);
+    transform: translateY(-16px); opacity:0; pointer-events:none;
+    transition:opacity .15s ease, transform .15s ease;
   }
-  .electro-img{
-    margin-top:1rem;
+  nav ul{flex-direction:column; gap:.25rem}
+  nav a{color:var(--azul); padding:.7rem .8rem; border-radius:10px; font-weight:800}
+  nav a:hover{background:#f4f7ff}
+
+  /* toggle abierto */
+  .nav-check:checked ~ .nav-burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-check:checked ~ .nav-burger span:nth-child(2){opacity:0}
+  .nav-check:checked ~ .nav-burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .nav-check:checked ~ nav{
+    opacity:1; transform: translateY(0); pointer-events:auto;
   }
+}
+
+/* Pequeñas mejoras de layout en header en pantallas estrechas */
+@media (max-width: 480px){
+  header{padding:.7rem .9rem}
+}
+
+/* --- “Más” (dropdown de overflow) --- */
+.nav-list{display:flex; align-items:center; gap:1.1rem; margin:0; padding:0; list-style:none}
+.nav-list > li{white-space:nowrap}
+
+.nav-more{position:relative; display:none;}        /* oculto si no hay overflow */
+.more-btn{
+  background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.25);
+  padding:.5rem .7rem; border-radius:10px; font-weight:800; cursor:pointer;
+}
+.more-btn:hover{background:rgba(255,255,255,.18)}
+.more-menu{
+  position:absolute; right:0; top:calc(100% + 8px);
+  min-width:220px; background:#ffffff; border:1px solid var(--borde);
+  border-radius:12px; box-shadow:0 18px 36px rgba(0,0,0,.14);
+  padding:.4rem; margin:0; list-style:none; display:none; z-index:30;
+}
+.more-menu li a{
+  display:block; padding:.6rem .7rem; border-radius:8px; color:var(--azul);
+  font-weight:800; text-decoration:none;
+}
+.more-menu li a:hover{background:#f4f7ff}
+
+/* estado abierto (lo activa el JS con .open) */
+.nav-more.open .more-menu{display:block}
+
+/* accesibilidad teclado */
+.more-btn:focus-visible{outline:3px solid rgba(255,255,255,.7); outline-offset:2px}
+.more-menu a:focus-visible{outline:3px solid rgba(11,61,145,.25); outline-offset:2px}
+
+/* integra con tu hamburguesa en móvil: en pantallas chicas, no usamos el “Más” */
+@media (max-width:980px){
+  .nav-more{display:none !important;}
+}
+
+/* ====== ADD-ON: NAV OVERFLOW “MÁS” (solo añadir, sin reemplazar) ====== */
+
+/* La lista puede scrollear en casos límite de zoom */
+.nav-list{
+  display:flex; align-items:center; gap:1.1rem; margin:0; padding:0; list-style:none;
+  white-space:nowrap; overflow-x:auto; scrollbar-width:thin;
+}
+.nav-list::-webkit-scrollbar{height:8px}
+.nav-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25); border-radius:8px}
+.nav-list > li{white-space:nowrap}
+
+/* Botón Más (se muestra si hay overflow; lo gestiona el JS) */
+.nav-more{position:relative; display:none}
+.more-btn{
+  background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.25);
+  padding:.5rem .7rem; border-radius:10px; font-weight:800; cursor:pointer;
+}
+.more-btn:hover{background:rgba(255,255,255,.18)}
+.more-btn:focus-visible{outline:3px solid rgba(255,255,255,.7); outline-offset:2px}
+
+/* 1) Desktop grande: mega-menú ancho que cae desde el header */
+@media (min-width: 1200px){
+  .more-menu{
+    position:fixed; left:16px; right:16px; top:calc(70px + 6px); /* ajusta 70px si tu header es más alto */
+    max-height:60vh; overflow:auto;
+    background:#fff; border:1px solid var(--borde); border-radius:14px;
+    padding:.8rem; margin:0; list-style:none; display:none; z-index:60;
+    box-shadow:0 22px 50px rgba(0,0,0,.18);
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:.5rem;
+  }
+  .more-menu li{list-style:none}
+  .more-menu a{
+    display:block; padding:.7rem .8rem; border-radius:10px;
+    background:#f7f9ff; border:1px solid #e6ecff; color:var(--azul); font-weight:800; text-decoration:none;
+  }
+  .more-menu a:hover{background:#eef4ff}
+  .nav-more.open .more-menu{display:grid}
+}
+
+/* 2) Desktop/Tablet medio: dropdown compacto pegado al botón */
+@media (min-width: 980px) and (max-width:1199.98px){
+  .more-menu{
+    position:absolute; right:0; top:calc(100% + 8px);
+    min-width:240px; max-height:60vh; overflow:auto;
+    background:#fff; border:1px solid var(--borde); border-radius:12px;
+    padding:.4rem; margin:0; list-style:none; display:none; z-index:60;
+    box-shadow:0 18px 36px rgba(0,0,0,.14);
+  }
+  .more-menu li{list-style:none}
+  .more-menu a{
+    display:block; padding:.65rem .75rem; border-radius:8px; color:var(--azul);
+    font-weight:800; text-decoration:none;
+  }
+  .more-menu a:hover{background:#f4f7ff}
+  .nav-more.open .more-menu{display:block}
+}
+
+/* 3) Móvil: no usamos “Más”, manda la hamburguesa */
+@media (max-width: 979.98px){
+  .nav-more{display:none !important}
+}
+
+/* asegurar stacking del header por encima del mega-menú */
+header{ position:sticky; top:0; z-index:50 }
+
+/* opcional: compactar un poco el header en anchos medios */
+@media (min-width:980px) and (max-width:1199.98px){
+  .nav-list{ gap:.8rem }
+  nav a{ padding:.4rem .5rem }
 }
